@@ -26,7 +26,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Oxygen Mono`, `Heebo`, `Montserrat\:400,700`],
+        // only import what you need to save on bundle size
+        // you can import a single font: `Montserrat`
+        // or multiple font weights: ``Montserrat\:400,400i,700`
+        fonts: [`Oxygen Mono\:400,400i,600`, `Montserrat`],
         display: "swap",
       },
     },
