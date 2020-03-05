@@ -1,10 +1,35 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Michael Leners Portfolio`,
+    description: `A developer portfolio.`,
+    author: `@micleners`,
   },
   plugins: [
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-json`,
+    `gatsby-plugin-styled-components`,
+    // to setup contentful, run the following command in the terminal:
+    // npm install gatsby-source-contentful
+    // then navigate to `env.development` and follow the instructions there
+    // then uncomment the block below
+    // {
+    //   resolve: `gatsby-source-contentful`,
+    //   options: {
+    //     spaceId: process.env.SPACE_ID,
+    //     accessToken: process.env.API_KEY,
+    //     host: process.env.HOST ? process.env.HOST : `cdn.contentful.com`,
+    //   },
+    // },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Oxygen Mono`, `Heebo`, `Montserrat\:400,700`],
+        display: "swap",
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
