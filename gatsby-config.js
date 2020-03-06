@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Michael Leners Portfolio`,
+    title: `One Heart Equestrian Therapy`,
     description: `A developer portfolio.`,
     author: `@micleners`,
   },
@@ -15,14 +15,14 @@ module.exports = {
     // npm install gatsby-source-contentful
     // then navigate to `env.development` and follow the instructions there
     // then uncomment the block below
-    // {
-    //   resolve: `gatsby-source-contentful`,
-    //   options: {
-    //     spaceId: process.env.SPACE_ID,
-    //     accessToken: process.env.API_KEY,
-    //     host: process.env.HOST ? process.env.HOST : `cdn.contentful.com`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.API_KEY,
+        host: process.env.HOST ? process.env.HOST : `cdn.contentful.com`,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
