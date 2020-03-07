@@ -29,7 +29,7 @@ module.exports = {
         // only import what you need to save on bundle size
         // you can import a single font: `Montserrat`
         // or multiple font weights: ``Montserrat\:400,400i,700`
-        fonts: [`Oxygen Mono\:400,400i,600`, `Montserrat`],
+        fonts: [`Lato`, `Montserrat`],
         display: "swap",
       },
     },

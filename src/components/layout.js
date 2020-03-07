@@ -1,16 +1,32 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
-import "./layout.css"
+import { theme } from "../utils"
+import { ThemeProvider, createGlobalStyle } from "styled-components"
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: Lato, Arial, Verdana;
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2)
+      ),
+      linear-gradient(180deg, rgba(255, 61, 0, 0.8) 32.29%, #ffc107 100%);
+    background-attachment: fixed;
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Montserrat, "Arial Black", Arial !important;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,8 +40,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+    <ThemeProvider theme={theme}>
       <div
         style={{
           margin: `0 auto`,
@@ -33,14 +48,16 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
+        <GlobalStyle />
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          © {new Date().getFullYear()}
+          <a href="https://www.onehearthorses.org/">
+            One Heart Equestrian Therapy, Inc.
+          </a>
         </footer>
       </div>
-    </>
+    </ThemeProvider>
   )
 }
 
